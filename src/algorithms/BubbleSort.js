@@ -1,8 +1,8 @@
 const BubbleSort = (array, position, steps, colors) => {
 	let colorKey = colors[colors.length - 1].slice();
-	console.log("colorKey", colorKey);
+
 	for (let i = 0; i < array.length; i++) {
-		for (let j = 0; i < array.length - i - 1; j++) {
+		for (let j = 0; j < array.length - i - 1; j++) {
 			if (array[j] > array[j + 1]) {
 				array = swap(array, j, j + 1);
 			}
@@ -14,7 +14,7 @@ const BubbleSort = (array, position, steps, colors) => {
 			colorKey[j + 1] = 0;
 		}
 		colorKey[array.length - 1 - i] = 2;
-		steps.push(array.slice(0, i));
+		steps.push(array.slice());
 		colors.push(colorKey.slice());
 	}
 	colors[colors.length - 1] = new Array(array.length).fill(2);
